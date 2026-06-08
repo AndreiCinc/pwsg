@@ -1,0 +1,220 @@
+{
+  "id": "ea73672c-4eee-4def-a944-737748cd670e",
+  "initialPrompt": "Create a website inspired by https://annoying-wix-sync-flow.base44.app",
+  "siteName": "annoying-wix-sync-flow.base44.app",
+  "brandBook": {
+    "tones": [
+      "professional",
+      "calm",
+      "expert",
+      "reassuring"
+    ],
+    "designStyle": {
+      "primaryStyle": [
+        "Elegant"
+      ],
+      "supportingStyles": [
+        "Minimalist",
+        "Professional",
+        "Sophisticated"
+      ]
+    },
+    "toneOfVoice": "Professional, trustworthy, sophisticated, reliable, expert, calm, reassuring.",
+    "graphicElements": {
+      "icons": "Clean, line-based icons that match the primary and secondary colors. Minimalist and easily recognizable.",
+      "stickers": "Not applicable for this brand identity.",
+      "illustrations": "Avoid. If necessary, use abstract, geometric, or subtle photographic elements that align with the elegant and professional tone."
+    },
+    "designSummary": "**The Refined Professional: A Symphony of Space and Sophistication**\n\nThe design philosophy for PWSG Group is rooted in establishing immediate trust and conveying a premium, reliable service. We achieve this through a meticulously balanced aesthetic that blends the timeless elegance of classic design with the clarity of modern digital presentation. The core is a generous application of negative space, allowing each element to communicate its importance without clutter. Typography plays a dual role: sophisticated serif headlines command attention with their gravitas, while clean sans-serif body text ensures absolute readability and approachability. The color palette is deliberately restrained, favoring deep, grounding tones and soft neutrals, punctuated by a single, refined accent color that signifies action and growth. This approach creates an environment that feels both luxurious and highly functional, perfectly aligning with PWSG Group's commitment to exceptional property management.\n\n**Execution Blueprint:**\n1. **Layout as Breathing Room:** Employ a grid system that prioritizes ample whitespace around all content blocks. Sections will be clearly delineated by generous vertical padding and minimal visual dividers.\n2. **Typographic Hierarchy:** Headlines will utilize a high-contrast serif font, set with generous leading and tracking to feel stately. Body copy will be set in a clean, legible sans-serif, ensuring comfort for extended reading.\n3. **Color Restraint:** A primary dark blue will anchor the palette, complemented by a soft off-white background. A refined green will serve as the primary accent for calls-to-action and key information, used judiciously.\n4. **Component Simplicity:** Buttons and interactive elements will favor ghost styles or text-only treatments, defined by their placement and subtle hover states rather than heavy styling.\n5. **Visual Harmony:** Images will be integrated thoughtfully, often full-width or within clean, defined containers, maintaining the overall sense of order and professionalism.",
+    "layout": {
+      "grid": {
+        "margins": "Generous, typically 80px or more on desktop, with responsive adjustments.",
+        "padding": "Generous, typically 40px on desktop, with responsive adjustments.",
+        "compositionApproach": "Symmetrical 12-column grid with generous gutters and margins.",
+        "spacing": {
+          "gaps": "Base unit: 4px. All grid gaps are 24px (6x base unit).",
+          "rows": "Flexible, based on content",
+          "columns": "12-column grid",
+          "compositionApproach": "Not specified"
+        }
+      },
+      "layoutDna": {
+        "contrastSpectrum": "Moderate to high contrast between text and background, with subtle contrast for interactive elements.",
+        "densitySpectrum": "Spacious and airy, with significant negative space.",
+        "textVsImageEmphasis": "Balanced, with typography often taking center stage in headlines, while images provide context and visual appeal.",
+        "complexitySpectrum": "Low to moderate, focusing on clarity and ease of navigation.",
+        "gridAlignmentSpectrum": "Symmetrical and balanced, with intentional use of a grid for order.",
+        "negativeSpaceUsage": "Generous and deliberate, used to define sections and create a sense of calm and luxury."
+      },
+      "heroSectionLayout": "**The Elegant Reveal**\nComposition (Tailwind Spec): Container `h-screen grid place-items-center p-8`. Headline `motion.h1` with text 'PWSG Group: Elevating Property Management' (text-6xl md:text-7xl lg:text-8xl font-bold text-primary leading-tight). Sub-headline `motion.p` (text-xl lg:text-2xl font-light text-muted mt-4) 'Comprehensive Services for Your Property in Cluj-Napoca'. Background image is a subtle, high-quality property photo with a soft overlay.\nSignature Hook (Framer Motion Spec): Parent `motion.div` with `initial={{ opacity: 0 }}` and `animate={{ opacity: 1 }}`. Headline `motion.h1` uses `variants` with `transition: { staggerChildren: 0.05, delayChildren: 0.2 }`. Each `motion.span` (for letter-by-letter reveal) has a variant with `initial={{ opacity: 0, y: 20 }}` and `animate={{ opacity: 1, y: 0 }}`. Sub-headline `motion.p` fades in with a slight delay."
+    },
+    "components": {
+      "images": "Layout Role: Integrated within the grid or full-bleed for impact. | Gallery Type: Standard grid layouts (2-3 columns) for service listings, or single full-width images for visual emphasis. Avoid complex gallery types.",
+      "buttons": "Primary: Ghost style with a thin border and text in the primary color, with a subtle hover effect to fill with primary color. Secondary: Text-only with underline on hover, or a simple ghost button with a muted border. Border radius is 0px.",
+      "containers": "Method: Whitespace, Style: 80px vertical margin between sections. Optional subtle borders or background color changes for distinct content blocks."
+    },
+    "palette": {
+      "colors": {
+        "customColors": [
+          {
+            "name": "destructive",
+            "value": "#E53E3E"
+          },
+          {
+            "name": "destructiveForeground",
+            "value": "#FFFFFF"
+          },
+          {
+            "name": "muted",
+            "value": "#A0AEC0"
+          },
+          {
+            "name": "mutedForeground",
+            "value": "#1A202C"
+          }
+        ],
+        "background": "#F5F7F8",
+        "secondary": "#3DAA3C",
+        "foreground": "#1F3C5A",
+        "secondaryForeground": "#FFFFFF",
+        "primaryForeground": "#FFFFFF",
+        "primary": "#1F3C5A"
+      },
+      "paletteUsageGuide": "The primary color (#1F3C5A) is for main calls to action, navigation elements, and key headings. The secondary color (#3DAA3C) is used for accent elements, secondary calls to action, and highlighting important information. The background (#F5F7F8) provides a clean, airy canvas. Foreground text (#1F3C5A) ensures readability on light backgrounds. PrimaryForeground (#FFFFFF) and SecondaryForeground (#FFFFFF) are for text on primary and secondary colored backgrounds respectively. Muted colors (#A0AEC0) are for less critical information or borders.",
+      "paletteAccessibilityNotes": "Ensure sufficient contrast between background and foreground colors for all text elements. Primary and secondary colors have been chosen to provide good contrast against the background and their respective foregrounds. Test all color combinations with accessibility tools."
+    },
+    "typography": {
+      "headings": {
+        "font": {
+          "fontFamily": "Playfair Display",
+          "role": "headings",
+          "fontJustification": ""
+        },
+        "headingsAccessibilityNotes": "Ensure sufficient contrast with the background. Avoid excessively small font sizes for headings.",
+        "headingsSimilarFonts": [
+          "serif"
+        ],
+        "headingsUsageGuide": "Use for all major headings (H1, H2, H3). The font's classic serifs lend an air of authority and sophistication. Ensure generous line height and spacing for maximum impact and readability."
+      },
+      "paragraphs": {
+        "font": {
+          "fontFamily": "Inter",
+          "role": "paragraphs",
+          "fontJustification": ""
+        },
+        "paragraphsUsageGuide": "Use for all body text, captions, and descriptive content. Its clean, modern structure ensures excellent readability across devices. Maintain consistent line height and paragraph spacing.",
+        "paragraphsSimilarFonts": [
+          "sans-serif"
+        ],
+        "paragraphsAccessibilityNotes": "Ensure adequate font size (minimum 16px equivalent) and line height (1.5x font size) for comfortable reading. Maintain high contrast with the background."
+      },
+      "customFontFamilies": {},
+      "fontSizes": [
+        {
+          "name": "xs",
+          "size": "0.75rem",
+          "lineHeight": "1.25",
+          "letterSpacing": "0.02em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "sm",
+          "size": "0.875rem",
+          "lineHeight": "1.375",
+          "letterSpacing": "0.02em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "base",
+          "size": "1rem",
+          "lineHeight": "1.5",
+          "letterSpacing": "0.01em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "lg",
+          "size": "1.125rem",
+          "lineHeight": "1.625",
+          "letterSpacing": "0.01em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "xl",
+          "size": "1.25rem",
+          "lineHeight": "1.75",
+          "letterSpacing": "0.01em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "2xl",
+          "size": "1.5rem",
+          "lineHeight": "1.75",
+          "letterSpacing": "0.01em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "3xl",
+          "size": "1.875rem",
+          "lineHeight": "1.2",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "4xl",
+          "size": "2.25rem",
+          "lineHeight": "1.2",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "5xl",
+          "size": "3rem",
+          "lineHeight": "1.15",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "6xl",
+          "size": "3.75rem",
+          "lineHeight": "1.1",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "7xl",
+          "size": "4.5rem",
+          "lineHeight": "1.05",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "8xl",
+          "size": "6rem",
+          "lineHeight": "1.0",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "9xl",
+          "size": "8rem",
+          "lineHeight": "1.0",
+          "letterSpacing": "0.01em",
+          "fontWeight": "700"
+        }
+      ],
+      "welcomeSectionTypography": {
+        "placement": "Centered, with ample space above and below.",
+        "implementation": "Large, impactful 'Playfair Display' headline (e.g., 'Welcome to PWSG Group') with a slightly smaller, well-spaced 'Inter' sub-headline or tagline. Ensure generous line-height and letter-spacing for both."
+      }
+    },
+    "originImagesUrls": []
+  },
+  "attachments": {
+    "contentImagesUrls": [],
+    "inspirationImagesUrls": [
+      "https://wixmp-c562ea68f10846b458285ce5.wixmp.com/scraped-screenshots/screenshot-1780942732324.webp"
+    ]
+  },
+  "status": "READY",
+  "plan": "\n\n```json\n{\n  \"sections\": [\n    {\n      \"id\": \"overview\",\n      \"title\": \"## Overview\",\n      \"content\": \"This site showcases PWSG Group's comprehensive property management services in Cluj-Napoca, including Airbnb management, professional cleaning, garden maintenance, and additional services like pressure washing and snow removal.\"\n    },\n    {\n      \"id\": \"key-features\",\n      \"title\": \"## Key features\",\n      \"content\": \"- **View Service Listing**: Browse all property management services offered by PWSG Group.\\n- **View Service Details**: See detailed information about each service including descriptions and benefits.\\n- **View Company Information**: Learn about PWSG Group's expertise, customer satisfaction, and availability.\\n- **Submit Contact Form**: Request a consultation to assess property income potential.\",\n      \"metadata\": [\n        { \"id\": \"view-service-listing\", \"name\": \"View Service Listing\" },\n        { \"id\": \"view-service-details\", \"name\": \"View Service Details\" },\n        { \"id\": \"view-company-information\", \"name\": \"View Company Information\" },\n        { \"id\": \"submit-contact-form\", \"name\": \"Submit Contact Form\" }\n      ]\n    },\n    {\n      \"id\": \"structure\",\n      \"title\": \"## Structure\",\n      \"content\": \"- **Header (Reusable)**: Contains site name, navigation links to all main pages.\\n- **Home Page**: Showcases hero section with main value proposition, overview of key services, customer statistics (100+ satisfied customers, ratings), and call-to-action for consultation.\\n- **Services Page**: Displays all services (Hotel Management, Professional Cleaning, Green Space Management, Pressure Washing & Snow Removal) with detailed descriptions and benefits.\\n- **About Page**: Presents company information, expertise highlights, 24/7 availability, legal compliance, and dynamic pricing approach.\\n- **Contact Page**: Features consultation request form for property owners to assess income potential.\\n- **Footer (Reusable)**: Includes company contact information, quick links, and additional details.\"\n    }\n  ],\n  \"apps\": [\n    {\n      \"id\": \"wix-cms\",\n      \"keyFeatures\": [\n        { \"id\": \"view-service-listing\", \"name\": \"View Service Listing\" },\n        { \"id\": \"view-service-details\", \"name\": \"View Service Details\" },\n        { \"id\": \"view-company-information\", \"name\": \"View Company Information\" },\n        { \"id\": \"submit-contact-form\", \"name\": \"Submit Contact Form\" }\n      ]\n    }\n  ],\n  \"version\": \"4.0.1\"\n}\n```"
+}
