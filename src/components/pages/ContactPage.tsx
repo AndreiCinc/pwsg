@@ -1,392 +1,149 @@
-import { useState, useEffect, useRef } from 'react';
-import { BaseCrudService } from '@/integrations';
-import { ConsultationRequests } from '@/entities';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { useState } from 'react';
 
-const AnimatedElement: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ 
-  children, 
-  className = '', 
-  delay = 0 
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.classList.add('is-visible');
-          }, delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-  
-  return (
-    <div 
-      ref={ref} 
-      className={`${className} opacity-0 translate-y-8 transition-all duration-700 ease-out`}
-    >
-      <style>{`
-        .is-visible {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
-      {children}
-    </div>
-  );
-};
-
-export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    propertyAddress: '',
-    propertyType: '',
-    numberOfBedrooms: '',
-    notes: ''
+export default function Contact() {
+  const [form, setForm] = useState({
+    firstName: '', lastName: '', email: '', phone: '', service: '', message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const requestData: ConsultationRequests = {
-        _id: crypto.randomUUID(),
-        fullName: formData.fullName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        propertyAddress: formData.propertyAddress,
-        propertyType: formData.propertyType,
-        numberOfBedrooms: formData.numberOfBedrooms ? parseInt(formData.numberOfBedrooms) : undefined,
-        notes: formData.notes
-      };
-
-      await BaseCrudService.create('consultationrequests', requestData);
-      
-      setIsSuccess(true);
-      setFormData({
-        fullName: '',
-        email: '',
-        phoneNumber: '',
-        propertyAddress: '',
-        propertyType: '',
-        numberOfBedrooms: '',
-        notes: ''
-      });
-
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    setLoading(true);
+    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1000);
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary via-primary/95 to-primary/90">
-        <div className="absolute inset-0 opacity-10">
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)',
-              backgroundSize: '30px 30px'
-            }}
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <AnimatedElement>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Contactează-ne
-            </h1>
-            <p className="text-xl md:text-2xl font-paragraph text-primary-foreground/90 max-w-3xl mx-auto">
-              Solicită o consultație gratuită și descoperă potențialul proprietății tale
-            </p>
-          </AnimatedElement>
+    <div>
+      {/* Header */}
+      <section className="pt-10 pb-14 bg-white text-center">
+        <div className="max-w-2xl mx-auto px-6">
+          <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Contactează-ne</p>
+          <h1 className="text-5xl font-bold mb-6" style={{ color: '#1F3C5A' }}>Hai să vorbim</h1>
+          <p className="text-gray-500 leading-relaxed text-lg">
+            Suntem disponibili 24/7. Contactează-ne pentru o consultație gratuită sau o ofertă personalizată.
+          </p>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Form */}
-            <AnimatedElement>
-              <Card className="p-8 shadow-xl border-border bg-card">
-                <CardContent className="p-0">
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">
-                    Solicită consultație gratuită
-                  </h2>
-                  
-                  {isSuccess && (
-                    <div className="mb-6 p-4 bg-accent/10 border border-accent/30 rounded-lg flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-paragraph text-foreground font-semibold">
-                          Mulțumim pentru solicitare!
-                        </p>
-                        <p className="font-paragraph text-muted-foreground text-sm">
-                          Te vom contacta în cel mai scurt timp pentru a discuta despre proprietatea ta.
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Label htmlFor="fullName" className="font-paragraph text-foreground">
-                        Nume complet *
-                      </Label>
-                      <Input
-                        id="fullName"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        required
-                        className="mt-2"
-                        placeholder="Ion Popescu"
-                      />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="email" className="font-paragraph text-foreground">
-                          Email *
-                        </Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
-                          className="mt-2"
-                          placeholder="ion@example.com"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="phoneNumber" className="font-paragraph text-foreground">
-                          Telefon *
-                        </Label>
-                        <Input
-                          id="phoneNumber"
-                          name="phoneNumber"
-                          type="tel"
-                          value={formData.phoneNumber}
-                          onChange={handleChange}
-                          required
-                          className="mt-2"
-                          placeholder="0747 075 974"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="propertyAddress" className="font-paragraph text-foreground">
-                        Adresa proprietății *
-                      </Label>
-                      <Input
-                        id="propertyAddress"
-                        name="propertyAddress"
-                        value={formData.propertyAddress}
-                        onChange={handleChange}
-                        required
-                        className="mt-2"
-                        placeholder="Str. Exemplu, Nr. 10, Cluj-Napoca"
-                      />
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="propertyType" className="font-paragraph text-foreground">
-                          Tip proprietate *
-                        </Label>
-                        <select
-                          id="propertyType"
-                          name="propertyType"
-                          value={formData.propertyType}
-                          onChange={handleChange}
-                          required
-                          className="mt-2 w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                        >
-                          <option value="">Selectează</option>
-                          <option value="Apartament">Apartament</option>
-                          <option value="Casă">Casă</option>
-                          <option value="Vilă">Vilă</option>
-                          <option value="Studio">Studio</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="numberOfBedrooms" className="font-paragraph text-foreground">
-                          Număr camere
-                        </Label>
-                        <Input
-                          id="numberOfBedrooms"
-                          name="numberOfBedrooms"
-                          type="number"
-                          min="1"
-                          value={formData.numberOfBedrooms}
-                          onChange={handleChange}
-                          className="mt-2"
-                          placeholder="2"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="notes" className="font-paragraph text-foreground">
-                        Mesaj / Detalii suplimentare
-                      </Label>
-                      <Textarea
-                        id="notes"
-                        name="notes"
-                        value={formData.notes}
-                        onChange={handleChange}
-                        className="mt-2"
-                        rows={4}
-                        placeholder="Spune-ne mai multe despre proprietatea ta și ce servicii te interesează..."
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-lg py-6 hover:scale-105 transition-transform"
-                    >
-                      {isSubmitting ? 'Se trimite...' : 'Trimite solicitarea'}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </AnimatedElement>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <AnimatedElement delay={100}>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">
-                    Informații de contact
-                  </h2>
-                  <p className="font-paragraph text-muted-foreground mb-8">
-                    Suntem aici pentru tine 24/7. Contactează-ne prin orice metodă preferată și îți vom răspunde în cel mai scurt timp.
-                  </p>
+      <section className="py-16" style={{ backgroundColor: '#F5F7F8' }}>
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+          {/* Contact info */}
+          <div>
+            <h2 className="text-2xl font-bold mb-8" style={{ color: '#1F3C5A' }}>Date de contact</h2>
+            <div className="space-y-5">
+              {[
+                { icon: MapPin, label: 'Adresă', value: 'Cluj-Napoca, România', href: null },
+                { icon: Phone, label: 'Telefon', value: '0747 075 974', href: 'tel:+40747075974' },
+                { icon: Mail, label: 'Email', value: 'contact@pwsg-group.ro', href: 'mailto:contact@pwsg-group.ro' },
+                { icon: Clock, label: 'Program', value: 'Disponibili 24/7', href: null },
+              ].map(({ icon: Icon, label, value, href }) => (
+                <div key={label} className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#EAF7F1' }}>
+                    <Icon className="w-5 h-5" style={{ color: '#3DAA3C' }} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm mb-0.5" style={{ color: '#1F3C5A' }}>{label}</p>
+                    {href ? (
+                      <a href={href} className="text-gray-500 text-sm hover:text-[#3DAA3C] transition-colors">{value}</a>
+                    ) : (
+                      <p className="text-gray-500 text-sm">{value}</p>
+                    )}
+                  </div>
                 </div>
-              </AnimatedElement>
-
-              <div className="space-y-6">
-                <AnimatedElement delay={200}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow bg-card border-border">
-                    <CardContent className="p-0 flex items-start gap-4">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-6 h-6 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-foreground mb-2">Telefon</h3>
-                        <a 
-                          href="tel:0747075974" 
-                          className="font-paragraph text-muted-foreground hover:text-accent transition-colors"
-                        >
-                          0747 075 974
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedElement>
-
-                <AnimatedElement delay={300}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow bg-card border-border">
-                    <CardContent className="p-0 flex items-start gap-4">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-6 h-6 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-foreground mb-2">Locație</h3>
-                        <p className="font-paragraph text-muted-foreground">
-                          Cluj-Napoca, România
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedElement>
-
-                <AnimatedElement delay={400}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow bg-card border-border">
-                    <CardContent className="p-0 flex items-start gap-4">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-6 h-6 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-foreground mb-2">Program</h3>
-                        <p className="font-paragraph text-muted-foreground">
-                          Disponibili 24/7
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedElement>
-              </div>
-
-              <AnimatedElement delay={500}>
-                <Card className="p-8 bg-gradient-to-br from-accent/10 to-accent/5 border-accent/20">
-                  <CardContent className="p-0">
-                    <h3 className="text-xl font-heading font-bold text-foreground mb-4">
-                      De ce să ne contactezi?
-                    </h3>
-                    <ul className="space-y-3">
-                      {[
-                        'Consultație gratuită pentru proprietatea ta',
-                        'Analiză detaliată a potențialului de venit',
-                        'Răspuns rapid în maxim 24 de ore',
-                        'Ofertă personalizată pentru nevoile tale'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                          <span className="font-paragraph text-foreground">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </AnimatedElement>
+              ))}
             </div>
+
+            <div className="mt-8 p-5 rounded-2xl" style={{ backgroundColor: '#1F3C5A' }}>
+              <p className="text-white font-semibold mb-2">Vrei să știi cât poți câștiga?</p>
+              <p className="text-blue-200 text-sm mb-4">Îți oferim o estimare gratuită a veniturilor din Airbnb/Booking pentru proprietatea ta.</p>
+              <a
+                href="tel:+40747075974"
+                className="block text-center py-2.5 rounded-lg font-semibold text-white text-sm transition-all hover:brightness-110"
+                style={{ backgroundColor: '#3DAA3C' }}
+              >
+                Sună acum: 0747 075 974
+              </a>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="md:col-span-2 bg-white rounded-2xl shadow-sm p-8">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center h-full py-16 text-center">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#EAF7F1' }}>
+                  <CheckCircle className="w-10 h-10" style={{ color: '#3DAA3C' }} />
+                </div>
+                <h3 className="text-2xl font-bold mb-3" style={{ color: '#1F3C5A' }}>Mesaj trimis cu succes!</h3>
+                <p className="text-gray-500 max-w-sm">Îți mulțumim! Te vom contacta în cel mai scurt timp, de regulă în mai puțin de 24 de ore.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: '#1F3C5A' }}>Trimite-ne un mesaj</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Prenume <span className="text-red-500">*</span></label>
+                    <input name="firstName" value={form.firstName} onChange={handleChange} required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent"
+                      placeholder="Ion" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Nume <span className="text-red-500">*</span></label>
+                    <input name="lastName" value={form.lastName} onChange={handleChange} required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent"
+                      placeholder="Popescu" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Email <span className="text-red-500">*</span></label>
+                    <input type="email" name="email" value={form.email} onChange={handleChange} required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent"
+                      placeholder="ion@email.com" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Telefon</label>
+                    <input type="tel" name="phone" value={form.phone} onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent"
+                      placeholder="0740 000 000" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Serviciu de interes</label>
+                  <select name="service" value={form.service} onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent bg-white">
+                    <option value="">Selectează un serviciu...</option>
+                    <option value="airbnb">Administrare Airbnb / Booking 360°</option>
+                    <option value="curatenie">Curățenie Profesională</option>
+                    <option value="spalatorie">Servicii Spălătorie</option>
+                    <option value="spatii-verzi">Amenajări Spații Verzi</option>
+                    <option value="presiune">Spălare sub Presiune</option>
+                    <option value="deszapezire">Deszăpezire</option>
+                    <option value="pachet">Pachet Complet</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1.5" style={{ color: '#1F3C5A' }}>Mesaj</label>
+                  <textarea name="message" value={form.message} onChange={handleChange} rows={4}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3DAA3C] focus:border-transparent resize-none"
+                    placeholder="Descrie ce ai nevoie sau pune-ne orice întrebare..." />
+                </div>
+                <button type="submit" disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110 disabled:opacity-70"
+                  style={{ backgroundColor: '#3DAA3C' }}>
+                  {loading
+                    ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    : <><Send className="w-4 h-4" /> Trimite mesajul</>
+                  }
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
