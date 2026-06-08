@@ -1,209 +1,187 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { BaseCrudService } from '@/integrations';
-import { PropertyManagementServices } from '@/entities';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
-import { LoadingSpinner } from '@/components/ui/loading-spinner';
-import { CheckCircle } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { CheckCircle, ChevronRight, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const AnimatedElement: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ 
-  children, 
-  className = '', 
-  delay = 0 
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.classList.add('is-visible');
-          }, delay);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-  
+const services = [
+  {
+    title: 'Curățenie & Întreținere Profesională în Cluj-Napoca',
+    badge: '⭐ Cel mai solicitat',
+    img: 'https://static.wixstatic.com/media/5d213c151f9a41259084a8a85041a42b.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/5d213c151f9a41259084a8a85041a42b.jpg',
+    desc: 'Oferim servicii de curățenie de înaltă calitate pentru locuințe, proprietăți în regim hotelier, birouri și spații comerciale. Fie că ai nevoie de curățenie periodică, generală sau post-renovare, echipa noastră este pregătită.',
+    features: [
+      'Curățenie generală și de întreținere periodică',
+      'Curățenie post-renovare și post-construcție',
+      'Curățenie pentru proprietăți Airbnb / Booking la fiecare check-out',
+      'Dezinfecție profesională cu produse certificate',
+      'Spații industriale, parcări și zone speciale',
+      'Curățenie birouri și spații comerciale',
+    ],
+  },
+  {
+    title: 'Servicii de Spălătorie Cluj-Napoca',
+    badge: '🚀 Colectare la domiciliu',
+    img: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80',
+    desc: 'Servicii complete de spălătorie și călcătorie pentru lenjerie de pat, prosoape, perdele și orice textile. Ideal pentru proprietăți în regim hotelier care necesită schimburi frecvente de lenjerie.',
+    features: [
+      'Spălare, uscare și călcare lenjerie de pat',
+      'Prosoape și textile pentru proprietăți turistice',
+      'Tratamente speciale pentru pete dificile',
+      'Serviciu rapid pentru proprietăți Airbnb',
+      'Ambalare și etichetare profesională',
+    ],
+  },
+  {
+    title: 'Amenajări Spații Verzi Cluj-Napoca',
+    badge: '🌿 Sezon activ',
+    img: 'https://static.wixstatic.com/media/88f881_20cd43317a83448fa80dcf358fa07a44~mv2.png/v1/fill/w_582,h_400,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/88f881_20cd43317a83448fa80dcf358fa07a44~mv2.png',
+    desc: 'Curtea ta din Cluj-Napoca merită mai mult! Oferim servicii complete de amenajare și întreținere a spațiilor verzi, de la gazon și arbori decorativi la sisteme de irigare și pavaje.',
+    features: [
+      'Tuns și întreținere gazon regulată',
+      'Tundere și modelare arbori, arbuști, gard viu',
+      'Amenajări peisagistice personalizate',
+      'Instalare și întreținere sisteme de irigare',
+      'Tratamente fitosanitare sezoniere',
+      'Plantări și reamenajări complete',
+    ],
+  },
+  {
+    title: 'Spălare cu Apă sub Presiune Cluj-Napoca',
+    badge: null,
+    img: 'https://static.wixstatic.com/media/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg',
+    desc: 'Curățăm eficient pavaje, terase, fațade, garduri și orice suprafețe exterioare cu echipamente profesionale de înaltă presiune. Rezultate spectaculoase în timp record.',
+    features: [
+      'Curățare pavaje, alei și terase',
+      'Spălare fațade clădiri și garduri',
+      'Curățare acoperișuri și jgheaburi',
+      'Îndepărtare mușchi, alge și depuneri',
+      'Spălare parcări și spații industriale',
+      'Tratament hidrofob după curățare',
+    ],
+  },
+  {
+    title: 'Deszăpezire Cluj-Napoca',
+    badge: '❄️ Contracte sezoniere',
+    img: 'https://static.wixstatic.com/media/656345a4b3cc41e98c007cebf2a8a0e4.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/656345a4b3cc41e98c007cebf2a8a0e4.jpg',
+    desc: 'Servicii rapide și eficiente de deszăpezire pentru proprietăți rezidențiale, comerciale și industriale din Cluj-Napoca. Intervenție promptă chiar și în condiții meteorologice extreme.',
+    features: [
+      'Deszăpezire manuală și mecanizată',
+      'Intervenție rapidă în aceeași zi',
+      'Împrăștiere materiale antiderapante',
+      'Contracte sezoniere avantajoase',
+      'Alei de acces, parcări și curți',
+      'Disponibilitate 24/7 în sezonul de iarnă',
+    ],
+  },
+];
+
+export default function Servicii() {
   return (
-    <div 
-      ref={ref} 
-      className={`${className} opacity-0 translate-y-8 transition-all duration-700 ease-out`}
-    >
-      <style>{`
-        .is-visible {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
-      {children}
-    </div>
-  );
-};
-
-export default function ServicesPage() {
-  const [services, setServices] = useState<PropertyManagementServices[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    loadServices();
-  }, []);
-
-  const loadServices = async () => {
-    try {
-      setIsLoading(true);
-      const result = await BaseCrudService.getAll<PropertyManagementServices>('services');
-      setServices(result.items);
-    } catch (error) {
-      console.error('Error loading services:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary via-primary/95 to-primary/90">
-        <div className="absolute inset-0 opacity-10">
-          <div 
-            className="absolute inset-0"
-            style={{
-              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)',
-              backgroundSize: '30px 30px'
-            }}
-          />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <AnimatedElement>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Serviciile noastre complete
-            </h1>
-            <p className="text-xl md:text-2xl font-paragraph text-primary-foreground/90 max-w-3xl mx-auto">
-              Soluții profesionale pentru toate nevoile proprietății tale în Cluj-Napoca
-            </p>
-          </AnimatedElement>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="min-h-[500px]">
-            {isLoading ? (
-              <div className="flex justify-center items-center py-20">
-                <LoadingSpinner />
-              </div>
-            ) : services.length > 0 ? (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {services.map((service, index) => (
-                  <AnimatedElement key={service._id} delay={index * 100}>
-                    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 bg-card border-border">
-                      <div className="grid md:grid-cols-2 gap-0">
-                        <div className="relative h-64 md:h-auto overflow-hidden">
-                          {service.serviceImage && (
-                            <Image 
-                              src={service.serviceImage} 
-                              alt={service.serviceName || 'Service'} 
-                              className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                              width={400}
-                            />
-                          )}
-                          {service.category === 'NOU' && (
-                            <div className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                              NOU
-                            </div>
-                          )}
-                        </div>
-                        <CardContent className="p-6 flex flex-col justify-center">
-                          <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
-                            {service.serviceName}
-                          </h3>
-                          {service.tagline && (
-                            <p className="text-base font-paragraph text-accent mb-4 font-semibold">
-                              {service.tagline}
-                            </p>
-                          )}
-                          {service.description && (
-                            <p className="text-base font-paragraph text-muted-foreground mb-4">
-                              {service.description}
-                            </p>
-                          )}
-                          {service.benefits && (
-                            <div className="space-y-2">
-                              {service.benefits.split('\n').filter(b => b.trim()).map((benefit, idx) => (
-                                <div key={idx} className="flex items-start gap-2">
-                                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                                  <span className="text-sm font-paragraph text-foreground">{benefit}</span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </CardContent>
-                      </div>
-                    </Card>
-                  </AnimatedElement>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-20">
-                <p className="text-lg font-paragraph text-muted-foreground">
-                  Nu există servicii disponibile momentan.
-                </p>
-              </div>
-            )}
+    <div>
+      {/* Header */}
+      <section className="pt-10 pb-16 bg-white text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Cluj-Napoca · Disponibili 24/7</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#1F3C5A' }}>Servicii Profesionale în Cluj-Napoca</h1>
+          <p className="text-gray-500 leading-relaxed text-lg mb-6">
+            De la curățenie și spălătorie profesională, la îngrijirea spațiilor verzi și deszăpezire. O singură echipă de încredere pentru toate nevoile proprietății tale din
+            <br />Cluj-Napoca.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="tel:+40747075974"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-white text-sm transition-all hover:brightness-110 shadow-md"
+              style={{ backgroundColor: '#3DAA3C' }}
+            >
+              <Phone className="w-4 h-4" /> Sună acum: 0747 075 974
+            </a>
+            <Link
+              to="/administrare-airbnb"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-sm border-2 transition-all hover:bg-gray-50"
+              style={{ color: '#1F3C5A', borderColor: '#1F3C5A' }}
+            >
+              Administrare Airbnb/Booking <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-muted/30 via-background to-muted/30">
-        <div className="container mx-auto px-4">
-          <AnimatedElement>
-            <div className="max-w-3xl mx-auto text-center bg-card rounded-3xl p-12 shadow-xl border border-border">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
-                Ai nevoie de serviciile noastre?
-              </h2>
-              <p className="text-lg font-paragraph text-muted-foreground mb-8">
-                Contactează-ne astăzi pentru o consultație gratuită și descoperă cum putem ajuta proprietatea ta.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 hover:scale-105 transition-transform"
-                >
-                  <Link to="/contact">Solicită consultație</Link>
-                </Button>
-                <Button 
-                  asChild 
-                  size="lg" 
-                  variant="outline" 
-                  className="text-lg px-8 py-6 hover:scale-105 transition-transform border-2"
-                >
-                  <a href="tel:0747075974">Sună acum</a>
-                </Button>
+      {/* Services */}
+      <div>
+        {services.map((service, i) => (
+          <section
+            key={service.title}
+            className="py-20"
+            style={{ backgroundColor: i % 2 === 0 ? '#F5F7F8' : '#FFFFFF' }}
+          >
+            <div className="max-w-7xl mx-auto px-6">
+              <div className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 !== 0 ? 'md:[direction:rtl]' : ''}`}>
+                <div className={i % 2 !== 0 ? '[direction:ltr]' : ''}>
+                  <Image src={service.img} alt={service.title} className="rounded-2xl shadow-xl w-full object-cover h-[380px]" />
+                </div>
+                <div className={i % 2 !== 0 ? '[direction:ltr]' : ''}>
+                  {service.badge && (
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style={{ backgroundColor: '#EAF7F1', color: '#3DAA3C' }}>
+                      {service.badge}
+                    </span>
+                  )}
+                  <h2 className="text-2xl md:text-3xl font-bold mb-5" style={{ color: '#1F3C5A' }}>
+                    {service.title.replace(' Cluj-Napoca', '')}<br />Cluj-Napoca
+                  </h2>
+                  <p className="text-gray-600 leading-relaxed mb-7">{service.desc}</p>
+                  <ul className="space-y-2.5 mb-8">
+                    {service.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
+                        <span className="text-gray-600 text-sm">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white text-sm transition-all hover:brightness-110"
+                      style={{ backgroundColor: '#3DAA3C' }}
+                    >
+                      Solicită ofertă gratuită <ChevronRight className="w-4 h-4" />
+                    </Link>
+                    <a
+                      href="tel:+40747075974"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border-2 transition-all hover:bg-gray-50"
+                      style={{ color: '#1F3C5A', borderColor: '#1F3C5A' }}
+                    >
+                      <Phone className="w-4 h-4" /> Sună direct
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </AnimatedElement>
+          </section>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <section className="py-20" style={{ backgroundColor: '#1F3C5A' }}>
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">Hai să discutăm despre proprietatea ta!</h2>
+          <p className="text-blue-200 mb-2">Suntem disponibili 24/7 pentru o consultație gratuită.</p>
+          <p className="text-[#3DAA3C] font-semibold text-lg mb-8">Răspundem în mai puțin de 1 oră.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="tel:+40747075974"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-white transition-all hover:brightness-110 shadow-lg text-lg"
+              style={{ backgroundColor: '#3DAA3C' }}
+            >
+              <Phone className="w-5 h-5" /> 0747 075 974
+            </a>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white border border-white/30 hover:bg-white/10 transition-all"
+            >
+              Trimite un mesaj <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
