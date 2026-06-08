@@ -19,8 +19,10 @@ export default {
                 '9xl': ['6rem', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: 'bold' }],
             },
             fontFamily: {
-                heading: "Playfair Display",
-                paragraph: "Roboto"
+                heading: '"Playfair Display", serif',
+                paragraph: '"Inter", sans-serif',
+                display: '"Playfair Display", serif',
+                mono: 'ui-monospace, monospace'
             },
             colors: {
                 primary: 'rgb(31 60 90 / <alpha-value>)',
