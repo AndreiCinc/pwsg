@@ -1,7 +1,6 @@
+import Footer from '@/components/Footer';
 import { BarChart2, Camera, CheckCircle, ChevronRight, Key, MessageCircle, Shield, Sparkles, Star, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 // SEO-optimized page: "Administrare Airbnb Booking Cluj-Napoca"
 
@@ -66,7 +65,7 @@ const faqs = [
 export default function AdministrareAirbnb() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+
       <main className="flex-1">
       {/* SEO Hero */}
       <section className="pt-10 pb-20 bg-white">
