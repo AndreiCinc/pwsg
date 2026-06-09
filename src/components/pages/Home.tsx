@@ -8,7 +8,7 @@ const HERO_IMG = "https://static.wixstatic.com/media/88f881_a3a976e03c9544239af7
 const CLEAN_IMG = "https://static.wixstatic.com/media/5d213c151f9a41259084a8a85041a42b.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/5d213c151f9a41259084a8a85041a42b.jpg";
 const GREEN_IMG = "https://static.wixstatic.com/media/88f881_20cd43317a83448fa80dcf358fa07a44~mv2.png/v1/fill/w_582,h_400,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/88f881_20cd43317a83448fa80dcf358fa07a44~mv2.png";
 const PRESSURE_IMG = "https://static.wixstatic.com/media/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg";
-const AIRBNB_IMG = "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80";
+const AIRBNB_IMG = "https://static.wixstatic.com/media/88f881_266d2806ab7544748020b1b4f988a226~mv2.png?originWidth=768&originHeight=576";
 
 const stats = [
   { number: '100+', label: 'Clienți mulțumiți' },

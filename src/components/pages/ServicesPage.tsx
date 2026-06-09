@@ -22,7 +22,7 @@ const services = [
   {
     title: 'Servicii de Spălătorie Cluj-Napoca',
     badge: '🚀 Colectare la domiciliu',
-    img: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80',
+    img: 'https://static.wixstatic.com/media/88f881_266d2806ab7544748020b1b4f988a226~mv2.png?originWidth=768&originHeight=576',
     desc: 'Servicii complete de spălătorie și călcătorie pentru lenjerie de pat, prosoape, perdele și orice textile. Ideal pentru proprietăți în regim hotelier care necesită schimburi frecvente de lenjerie.',
     features: [
       'Spălare, uscare și călcare lenjerie de pat',
