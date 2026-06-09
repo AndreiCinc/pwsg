@@ -24,13 +24,14 @@ export default function Navbar() {
   const isActive = (to) => location.pathname === to;
 
   return (
-    <>
+
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       {/* Fonts */}
       <link rel="preconnect" href="https://static.parastorage.com" />
-    </>
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+      </>
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img src={LOGO} alt="PWSG Group" className="h-12 w-auto" />
