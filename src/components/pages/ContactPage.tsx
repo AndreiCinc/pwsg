@@ -19,21 +19,16 @@ export default function Contact() {
     setLoading(true);
     setError('');
     
-    try {
-      await BaseCrudService.create('consultationrequests', {
-        _id: crypto.randomUUID(),
-        fullName: `${form.firstName} ${form.lastName}`,
-        email: form.email,
-        phoneNumber: form.phone,
-        propertyType: form.service,
-        notes: form.message,
-      });
-      setLoading(false);
-      setSubmitted(true);
-    } catch (err) {
-      setError('A apărut o eroare. Te rog încearcă din nou.');
-      setLoading(false);
-    }
+    await BaseCrudService.create('consultationrequests', {
+      _id: crypto.randomUUID(),
+      fullName: `${form.firstName} ${form.lastName}`,
+      email: form.email,
+      phoneNumber: form.phone,
+      propertyType: form.service,
+      notes: form.message,
+    });
+    setLoading(false);
+    setSubmitted(true);
   };
 
   return (
