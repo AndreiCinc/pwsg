@@ -1,15 +1,11 @@
-export const Head = () => {
-  return (
-
-  );
-};
+import { Image } from '@/components/ui/image';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
 
 const LOGO = "https://media.base44.com/images/public/6a22cb9fdee4197bc1a93918/553855345_Designfrtitlu.png";
 
-export default function Navbar() {
+export default function Head() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -33,7 +29,7 @@ export default function Navbar() {
       </>
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src={LOGO} alt="PWSG Group" className="h-12 w-auto" />
+          <Image src={LOGO} alt="PWSG Group" className="h-12 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-7">
