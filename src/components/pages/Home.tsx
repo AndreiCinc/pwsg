@@ -22,28 +22,28 @@ const services = [
     img: AIRBNB_IMG,
     title: 'Administrare Regim Hotelier',
     desc: 'Gestionăm complet proprietatea ta pe Airbnb, Booking.com și alte platforme. Tu încasezi, noi ne ocupăm de tot.',
-    to: 'admin-airbnb',
+    to: '/admin-airbnb',
     badge: 'NOU',
   },
   {
     img: CLEAN_IMG,
     title: 'Curățenie & Spălătorie Profesională',
     desc: 'Curățenie impecabilă pentru locuințe, proprietăți turistice și spații comerciale. Produse ecologice.',
-    to: 'servicii',
+    to: '/servicii',
     badge: null,
   },
   {
     img: GREEN_IMG,
     title: 'Amenajări Spații Verzi',
     desc: 'Întreținere gazon, tundere arbori, amenajări peisagistice și sisteme de irigare în Cluj-Napoca.',
-    to: 'servicii',
+    to: '/servicii',
     badge: null,
   },
   {
     img: PRESSURE_IMG,
     title: 'Spălare sub Presiune & Deszăpezire',
     desc: 'Curățare hidro pentru pavaje, terase, fațade. Servicii de deszăpezire rapide și eficiente.',
-    to: 'servicii',
+    to: '/servicii',
     badge: null,
   },
 ];
@@ -101,7 +101,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  to="admin-airbnb"
+                  to="/admin-airbnb"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg"
                   style={{ backgroundColor: '#3DAA3C' }}
                 >
@@ -193,7 +193,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Link
-                  to="admin-airbnb"
+                  to="/admin-airbnb"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
                   style={{ backgroundColor: '#3DAA3C' }}
                 >
@@ -275,7 +275,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="contact"
+                to="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
                 style={{ backgroundColor: '#3DAA3C' }}
               >
