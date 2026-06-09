@@ -2,6 +2,7 @@ import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { BaseCrudService } from '@/integrations';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -9,13 +10,30 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1000);
+    setError('');
+    
+    try {
+      await BaseCrudService.create('consultationrequests', {
+        _id: crypto.randomUUID(),
+        fullName: `${form.firstName} ${form.lastName}`,
+        email: form.email,
+        phoneNumber: form.phone,
+        propertyType: form.service,
+        notes: form.message,
+      });
+      setLoading(false);
+      setSubmitted(true);
+    } catch (err) {
+      setError('A apărut o eroare. Te rog încearcă din nou.');
+      setLoading(false);
+    }
   };
 
   return (
