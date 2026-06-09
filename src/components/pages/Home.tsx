@@ -20,7 +20,7 @@ const services = [
     img: AIRBNB_IMG,
     title: 'Administrare Regim Hotelier',
     desc: 'Gestionăm complet proprietatea ta pe Airbnb, Booking.com și alte platforme. Tu încasezi, noi ne ocupăm de tot.',
-    to: 'administrare-airbnb',
+    to: 'admin-airbnb',
     badge: 'NOU',
   },
   {
@@ -97,7 +97,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                to="administrare-airbnb"
+                to="admin-airbnb"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg"
                 style={{ backgroundColor: '#3DAA3C' }}
               >
@@ -189,7 +189,7 @@ export default function Home() {
                 ))}
               </ul>
               <Link
-                to="administrare-airbnb"
+                to="admin-airbnb"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
                 style={{ backgroundColor: '#3DAA3C' }}
               >
