@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const LOGO = "https://media.base44.com/images/public/6a22cb9fdee4197bc1a93918/553855345_Designfrtitlu.png";
+
 
 export const Head = () => {
   const [menuOpen, setMenuOpen] = useState(false);
