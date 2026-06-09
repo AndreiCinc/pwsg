@@ -29,7 +29,7 @@ export const Head = () => {
       </>
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <Image src={LOGO} alt="PWSG Group" className="h-12 w-auto" />
+          <Image src={""} alt="PWSG Group" className="h-12 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-7">
