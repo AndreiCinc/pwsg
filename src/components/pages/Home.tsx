@@ -1,8 +1,8 @@
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import { Image } from '@/components/ui/image';
 import { CheckCircle, ChevronRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 const HERO_IMG = "https://static.wixstatic.com/media/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg/v1/fill/w_1760,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg";
 const CLEAN_IMG = "https://static.wixstatic.com/media/5d213c151f9a41259084a8a85041a42b.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/5d213c151f9a41259084a8a85041a42b.jpg";
