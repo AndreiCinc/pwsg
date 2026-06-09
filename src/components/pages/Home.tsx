@@ -1,6 +1,8 @@
 import { Image } from '@/components/ui/image';
 import { CheckCircle, ChevronRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const HERO_IMG = "https://static.wixstatic.com/media/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg/v1/fill/w_1760,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg";
 const CLEAN_IMG = "https://static.wixstatic.com/media/5d213c151f9a41259084a8a85041a42b.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/5d213c151f9a41259084a8a85041a42b.jpg";
@@ -55,238 +57,242 @@ const whyUs = [
 
 const testimonials = [
   {
-    text: '"De când am predat administrarea apartamentului către PWSG Group, gradul meu de ocupare a crescut cu peste 40%. Nu mă mai ocup de nimic!"',
+    text: '\"De când am predat administrarea apartamentului către PWSG Group, gradul meu de ocupare a crescut cu peste 40%. Nu mă mai ocup de nimic!\"',
     name: 'Andrei M.', role: 'Proprietar Cluj-Napoca', rating: 5,
   },
   {
-    text: '"Curățenia și întreținerea spațiilor verzi sunt impecabile. Profesioniști adevărați, recomand cu căldură!"',
+    text: '\"Curățenia și întreținerea spațiilor verzi sunt impecabile. Profesioniști adevărați, recomand cu căldură!\"',
     name: 'Maria P.', role: 'Clientă fidelă', rating: 5,
   },
   {
-    text: '"Mi-au transformat apartamentul într-o sursă de venit pasiv. Totul este gestionat perfect, de la check-in la curățenie."',
+    text: '\"Mi-au transformat apartamentul într-o sursă de venit pasiv. Totul este gestionat perfect, de la check-in la curățenie.\"',
     name: 'Radu D.', role: 'Investitor imobiliar', rating: 5,
   },
 ];
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative min-h-[95vh] flex items-end pb-20 md:items-center md:pb-0">
-        {/* Imaginea reală — full visibility */}
-        <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover object-center" />
-        {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to right, rgba(10,22,38,0.82) 0%, rgba(10,22,38,0.55) 55%, rgba(10,22,38,0.15) 100%)'
-        }} />
-        {/* Linie de accent verde jos */}
-        <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(to right, #3DAA3C, transparent)' }} />
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="relative min-h-[95vh] flex items-end pb-20 md:items-center md:pb-0">
+          {/* Imaginea reală — full visibility */}
+          <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover object-center" />
+          {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
+          <div className="absolute inset-0" style={{
+            background: 'linear-gradient(to right, rgba(10,22,38,0.82) 0%, rgba(10,22,38,0.55) 55%, rgba(10,22,38,0.15) 100%)'
+          }} />
+          {/* Linie de accent verde jos */}
+          <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(to right, #3DAA3C, transparent)' }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 md:py-24 w-full">
-          <div className="max-w-xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
-              Cluj-Napoca · Disponibili 24/7
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-5 drop-shadow-lg">
-              Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
-              <span className="block text-base sm:text-xl md:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
-            </h1>
-            <p className="text-white/85 text-sm sm:text-base md:text-lg leading-relaxed mb-8 drop-shadow">
-              De la curățenie profesională și întreținerea grădinii, până la administrarea completă a locuințelor în regim hotelier — o singură echipă pentru toate nevoile proprietății tale.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="admin-airbnb"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg"
-                style={{ backgroundColor: '#3DAA3C' }}
-              >
-                Descoperă serviciul <ChevronRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="tel:+40747075974"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white backdrop-blur-sm border border-white/40 hover:bg-white/15 transition-all"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-              >
-                Sună acum: 0747 075 974
-              </a>
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 md:py-24 w-full">
+            <div className="max-w-xl">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
+                Cluj-Napoca · Disponibili 24/7
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-5 drop-shadow-lg">
+                Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
+                <span className="block text-base sm:text-xl md:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
+              </h1>
+              <p className="text-white/85 text-sm sm:text-base md:text-lg leading-relaxed mb-8 drop-shadow">
+                De la curățenie profesională și întreținerea grădinii, până la administrarea completă a locuințelor în regim hotelier — o singură echipă pentru toate nevoile proprietății tale.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="admin-airbnb"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg"
+                  style={{ backgroundColor: '#3DAA3C' }}
+                >
+                  Descoperă serviciul <ChevronRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="tel:+40747075974"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white backdrop-blur-sm border border-white/40 hover:bg-white/15 transition-all"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                >
+                  Sună acum: 0747 075 974
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats bar */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map(({ number, label }) => (
-              <div key={label}>
-                <p className="text-3xl font-bold" style={{ color: '#3DAA3C' }}>{number}</p>
-                <p className="text-gray-500 text-sm mt-1">{label}</p>
-              </div>
-            ))}
+        {/* Stats bar */}
+        <section className="bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {stats.map(({ number, label }) => (
+                <div key={label}>
+                  <p className="text-3xl font-bold" style={{ color: '#3DAA3C' }}>{number}</p>
+                  <p className="text-gray-500 text-sm mt-1">{label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services */}
-      <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Ce oferim</p>
-            <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>Serviciile noastre complete</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map(({ img, title, desc, to, badge }) => (
-              <Link key={title} to={to} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="relative overflow-hidden h-48">
-                  <Image src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  {badge && (
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ backgroundColor: '#3DAA3C' }}>
-                      {badge}
+        {/* Services */}
+        <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-14">
+              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Ce oferim</p>
+              <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>Serviciile noastre complete</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map(({ img, title, desc, to, badge }) => (
+                <Link key={title} to={to} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                  <div className="relative overflow-hidden h-48">
+                    <Image src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    {badge && (
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ backgroundColor: '#3DAA3C' }}>
+                        {badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-semibold text-base mb-2" style={{ color: '#1F3C5A' }}>{title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                    <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold" style={{ color: '#3DAA3C' }}>
+                      Află mai mult <ChevronRight className="w-3 h-3" />
                     </span>
-                  )}
-                </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-base mb-2" style={{ color: '#1F3C5A' }}>{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold" style={{ color: '#3DAA3C' }}>
-                    Află mai mult <ChevronRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Airbnb highlight */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Serviciul nostru premium</p>
-              <h2 className="text-4xl font-bold mb-6 leading-tight" style={{ color: '#1F3C5A' }}>
-                Închiriezi pe Airbnb sau Booking?<br/>
-                <span style={{ color: '#3DAA3C' }}>Noi ne ocupăm de tot.</span>
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Ești proprietar în Cluj-Napoca și vrei să câștigi mai mult din apartamentul tău în regim hotelier? PWSG Group preia administrarea completă — de la listare și fotografii profesionale, la comunicarea cu oaspeții, curățenie și check-out.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Listare și optimizare pe Airbnb, Booking.com, Travelminit',
-                  'Gestionare rezervări și comunicare oaspeți 24/7',
-                  'Curățenie profesională la fiecare check-out',
-                  'Fotografii profesionale pentru anunț',
-                  'Optimizare dinamică tarife pentru venituri maxime',
-                  'Rapoarte lunare de performanță',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
-                    <span className="text-gray-600 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Airbnb highlight */}
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div>
+                <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Serviciul nostru premium</p>
+                <h2 className="text-4xl font-bold mb-6 leading-tight" style={{ color: '#1F3C5A' }}>
+                  Închiriezi pe Airbnb sau Booking?<br/>
+                  <span style={{ color: '#3DAA3C' }}>Noi ne ocupăm de tot.</span>
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Ești proprietar în Cluj-Napoca și vrei să câștigi mai mult din apartamentul tău în regim hotelier? PWSG Group preia administrarea completă — de la listare și fotografii profesionale, la comunicarea cu oaspeții, curățenie și check-out.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {[
+                    'Listare și optimizare pe Airbnb, Booking.com, Travelminit',
+                    'Gestionare rezervări și comunicare oaspeți 24/7',
+                    'Curățenie profesională la fiecare check-out',
+                    'Fotografii profesionale pentru anunț',
+                    'Optimizare dinamică tarife pentru venituri maxime',
+                    'Rapoarte lunare de performanță',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
+                      <span className="text-gray-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="admin-airbnb"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
+                  style={{ backgroundColor: '#3DAA3C' }}
+                >
+                  Descoperă administrarea 360° <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div className="relative">
+                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-[480px]" />
+                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-5 shadow-xl hidden md:block">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#EAF7F1' }}>
+                      <TrendingUp className="w-6 h-6" style={{ color: '#3DAA3C' }} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500">Creștere medie venituri</p>
+                      <p className="text-2xl font-bold" style={{ color: '#1F3C5A' }}>+260%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why us */}
+        <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-14">
+              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">De ce noi</p>
+              <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>De ce să alegi PWSG Group</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {whyUs.map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="bg-white rounded-2xl p-7 shadow-sm text-center">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: '#EAF7F1' }}>
+                    <Icon className="w-7 h-7" style={{ color: '#3DAA3C' }} />
+                  </div>
+                  <h3 className="font-semibold text-base mb-3" style={{ color: '#1F3C5A' }}>{title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-24" style={{ backgroundColor: '#1F3C5A' }}>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-14">
+              <h2 className="text-4xl font-bold text-white">Ce spun clienții noștri</h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {testimonials.map(({ text, name, role, rating }) => (
+                <div key={name} className="bg-white/10 backdrop-blur rounded-2xl p-7">
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-blue-100 italic leading-relaxed mb-5 text-sm">{text}</p>
+                  <div>
+                    <p className="font-semibold text-white text-sm">{name}</p>
+                    <p className="text-[#3DAA3C] text-xs">{role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-4xl font-bold mb-5" style={{ color: '#1F3C5A' }}>
+              Gata să îți maximizezi veniturile?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Contactează-ne pentru o consultație gratuită. Analizăm proprietatea ta și îți spunem exact cât poți câștiga cu administrarea noastră 360°.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="admin-airbnb"
+                to="contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
                 style={{ backgroundColor: '#3DAA3C' }}
               >
-                Descoperă administrarea 360° <ChevronRight className="w-4 h-4" />
+                Consultație gratuită <ChevronRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="relative">
-              <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-[480px]" />
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-5 shadow-xl hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#EAF7F1' }}>
-                    <TrendingUp className="w-6 h-6" style={{ color: '#3DAA3C' }} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Creștere medie venituri</p>
-                    <p className="text-2xl font-bold" style={{ color: '#1F3C5A' }}>+260%</p>
-                  </div>
-                </div>
-              </div>
+              <a
+                href="tel:+40747075974"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold border-2 transition-all hover:bg-gray-50"
+                style={{ color: '#1F3C5A', borderColor: '#1F3C5A' }}
+              >
+                0747 075 974
+              </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Why us */}
-      <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">De ce noi</p>
-            <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>De ce să alegi PWSG Group</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyUs.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-white rounded-2xl p-7 shadow-sm text-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: '#EAF7F1' }}>
-                  <Icon className="w-7 h-7" style={{ color: '#3DAA3C' }} />
-                </div>
-                <h3 className="font-semibold text-base mb-3" style={{ color: '#1F3C5A' }}>{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24" style={{ backgroundColor: '#1F3C5A' }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-white">Ce spun clienții noștri</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map(({ text, name, role, rating }) => (
-              <div key={name} className="bg-white/10 backdrop-blur rounded-2xl p-7">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-blue-100 italic leading-relaxed mb-5 text-sm">{text}</p>
-                <div>
-                  <p className="font-semibold text-white text-sm">{name}</p>
-                  <p className="text-[#3DAA3C] text-xs">{role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-5" style={{ color: '#1F3C5A' }}>
-            Gata să îți maximizezi veniturile?
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
-            Contactează-ne pentru o consultație gratuită. Analizăm proprietatea ta și îți spunem exact cât poți câștiga cu administrarea noastră 360°.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
-              style={{ backgroundColor: '#3DAA3C' }}
-            >
-              Consultație gratuită <ChevronRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:+40747075974"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold border-2 transition-all hover:bg-gray-50"
-              style={{ color: '#1F3C5A', borderColor: '#1F3C5A' }}
-            >
-              0747 075 974
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      <Footer />
     </div>
   );
 }
