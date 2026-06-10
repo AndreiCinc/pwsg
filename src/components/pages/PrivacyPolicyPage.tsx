@@ -1,4 +1,4 @@
-import { ChevronRight, Shield, Lock, FileText, AlertCircle, Cookie, Eye, Database, Users, Zap } from 'lucide-react';
+import { ChevronRight, Shield, Lock, FileText, AlertCircle, Cookie, Eye, Database, Users, Zap, Clock, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
