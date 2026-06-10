@@ -123,7 +123,7 @@ export default function Footer() {
             © 2026 PWSG Group. Toate drepturile rezervate.
           </p>
           <div className="flex gap-6 font-paragraph text-sm text-white/60">
-            <a href="#" className="hover:text-[#3DAA3C] transition-colors duration-300">Politica de confidențialitate</a>
+            <Link to="/politica-confidentialitate" className="hover:text-[#3DAA3C] transition-colors duration-300">Politica de confidențialitate</Link>
             <Link to="/termeni-si-conditii" className="hover:text-[#3DAA3C] transition-colors duration-300">Termeni și condiții</Link>
           </div>
         </div>

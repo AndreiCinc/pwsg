@@ -9,6 +9,7 @@ import ContactPage from '@/components/pages/ContactPage';
 import AdminAirbnbPage from '@/components/pages/AdminAirbnbPage';
 import HotelRegimePage from '@/components/pages/HotelRegimePage';
 import TermsAndConditionsPage from '@/components/pages/TermsAndConditionsPage';
+import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -73,6 +74,13 @@ const router = createBrowserRouter([
         element: <TermsAndConditionsPage />,
         routeMetadata: {
           pageIdentifier: 'terms-conditions',
+        },
+      },
+      {
+        path: "politica-confidentialitate",
+        element: <PrivacyPolicyPage />,
+        routeMetadata: {
+          pageIdentifier: 'privacy-policy',
         },
       },
       {
