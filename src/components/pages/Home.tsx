@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Image } from '@/components/ui/image';
-import { CheckCircle, ChevronRight, Clock, Shield, Star, TrendingUp, Users } from 'lucide-react';
+import { CheckCircle, ChevronRight, Clock, Shield, Star, TrendingUp, Users, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HERO_IMG = "https://static.wixstatic.com/media/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg/v1/fill/w_1760,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg";
@@ -57,15 +57,15 @@ const whyUs = [
 
 const testimonials = [
   {
-    text: '\"De când am predat administrarea apartamentului către PWSG Group, gradul meu de ocupare a crescut cu peste 40%. Nu mă mai ocup de nimic!\"',
+    text: '"De când am predat administrarea apartamentului către PWSG Group, gradul meu de ocupare a crescut cu peste 40%. Nu mă mai ocup de nimic!"',
     name: 'Andrei M.', role: 'Proprietar Cluj-Napoca', rating: 5,
   },
   {
-    text: '\"Curățenia și întreținerea spațiilor verzi sunt impecabile. Profesioniști adevărați, recomand cu căldură!\"',
+    text: '"Curățenia și întreținerea spațiilor verzi sunt impecabile. Profesioniști adevărați, recomand cu căldură!"',
     name: 'Maria P.', role: 'Clientă fidelă', rating: 5,
   },
   {
-    text: '\"Mi-au transformat apartamentul într-o sursă de venit pasiv. Totul este gestionat perfect, de la check-in la curățenie.\"',
+    text: '"Mi-au transformat apartamentul într-o sursă de venit pasiv. Totul este gestionat perfect, de la check-in la curățenie."',
     name: 'Radu D.', role: 'Investitor imobiliar', rating: 5,
   },
 ];
@@ -108,11 +108,14 @@ export default function Home() {
                   Descoperă serviciul <ChevronRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="tel:+40747075974"
+                  href="https://wa.me/40747075974?text=Salut%20PWSG%20Group%2C%20sunt%20interesat%20de%20serviciile%20voastre"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white backdrop-blur-sm border border-white/40 hover:bg-white/15 transition-all"
                   style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
                 >
-                  Sună acum: 0747 075 974
+                  <MessageCircle className="w-4 h-4" />
+                  WhatsApp: 0747 075 974
                 </a>
               </div>
             </div>
