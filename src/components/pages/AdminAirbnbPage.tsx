@@ -73,7 +73,7 @@ export default function AdministrareAirbnb() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 tracking-widest uppercase" style={{ backgroundColor: '#EAF7F1', color: '#3DAA3C' }}>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 tracking-widest uppercase whitespace-nowrap" style={{ backgroundColor: '#EAF7F1', color: '#3DAA3C' }}>
                 Cluj-Napoca · Disponibili 24/7
               </span>
               {/* H1 cu keywords principale */}
