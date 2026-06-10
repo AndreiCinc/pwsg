@@ -86,7 +86,7 @@ export default function Home() {
           {/* Linie de accent verde jos */}
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(to right, #3DAA3C, transparent)' }} />
 
-          <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-2 sm:py-4 md:py-8 w-full flex items-start sm:items-center justify-center">
+          <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-4 py-2 sm:py-4 md:py-8 w-full flex items-start sm:items-center justify-center">
             <div className="max-w-xl text-center sm:text-left">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 Proprietatea ta, prioritatea noastră
