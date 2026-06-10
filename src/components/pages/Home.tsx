@@ -203,7 +203,7 @@ export default function Home() {
                 </Link>
               </div>
               <div className="relative">
-                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-64 sm:h-80 md:h-[480px]" />
+                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-48 sm:h-64 md:h-[480px]" />
                 <div className="absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl p-4 sm:p-5 shadow-xl hidden md:block">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#EAF7F1' }}>
