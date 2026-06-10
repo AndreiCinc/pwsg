@@ -11,6 +11,7 @@ export default function Header() {
   const navLinks = [
     { path: '/', label: 'Acasă' },
     { path: '/servicii', label: 'Servicii' },
+    { path: '/regim-hotelier', label: 'Regim Hotelier' },
     { path: '/despre', label: 'Despre' },
     { path: '/contact', label: 'Contact' }
   ];
