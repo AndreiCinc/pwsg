@@ -76,7 +76,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 pt-20">
         {/* Hero */}
-        <section className="relative min-h-[90vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-screen flex items-center justify-center md:items-center">
+        <section className="relative min-h-[85vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-screen flex items-center justify-center md:items-center">
           {/* Imaginea reală — scaled down on mobile */}
           <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center' }} />
           {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
