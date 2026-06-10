@@ -90,7 +90,7 @@ export default function Home() {
             <div className="max-w-xl text-center sm:text-left">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
-                Cluj · Disponibili 24/7
+                Proprietatea ta, prioritatea noastră
               </span>
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4 sm:mb-5 drop-shadow-lg">
                 Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
