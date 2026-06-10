@@ -76,7 +76,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative min-h-[95vh] flex items-end pb-20 md:items-center md:pb-0">
+        <section className="relative min-h-screen sm:min-h-[95vh] flex items-end pb-12 sm:pb-20 md:items-center md:pb-0">
           {/* Imaginea reală — full visibility */}
           <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover object-center" />
           {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
@@ -86,23 +86,23 @@ export default function Home() {
           {/* Linie de accent verde jos */}
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(to right, #3DAA3C, transparent)' }} />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 md:py-24 w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-24 w-full">
             <div className="max-w-xl">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
+              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
                 Cluj-Napoca · Disponibili 24/7
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.1] mb-5 drop-shadow-lg">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4 sm:mb-5 drop-shadow-lg">
                 Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
-                <span className="block text-base sm:text-xl md:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
+                <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
               </h1>
-              <p className="text-white/85 text-sm sm:text-base md:text-lg leading-relaxed mb-8 drop-shadow">
+              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 drop-shadow">
                 De la curățenie profesională și întreținerea grădinii, până la administrarea completă a locuințelor în regim hotelier — o singură echipă pentru toate nevoile proprietății tale.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <Link
                   to="/admin-airbnb"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white transition-all hover:brightness-110 hover:shadow-2xl shadow-lg text-sm sm:text-base"
                   style={{ backgroundColor: '#3DAA3C' }}
                 >
                   Descoperă serviciul <ChevronRight className="w-4 h-4" />
@@ -111,11 +111,11 @@ export default function Home() {
                   href="https://wa.me/40747075974?text=Salut%20PWSG%20Group%2C%20sunt%20interesat%20de%20serviciile%20voastre"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white backdrop-blur-sm border border-white/40 hover:bg-white/15 transition-all"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white backdrop-blur-sm border border-white/40 hover:bg-white/15 transition-all text-sm sm:text-base"
                   style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
                 >
                   <MessageCircle className="w-4 h-4" />
-                  WhatsApp: 0747 075 974
+                  <span>WhatsApp: 0747 075 974</span>
                 </a>
               </div>
             </div>
@@ -124,12 +124,12 @@ export default function Home() {
 
         {/* Stats bar */}
         <section className="bg-white border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-6 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
               {stats.map(({ number, label }) => (
                 <div key={label}>
-                  <p className="text-3xl font-bold" style={{ color: '#3DAA3C' }}>{number}</p>
-                  <p className="text-gray-500 text-sm mt-1">{label}</p>
+                  <p className="text-2xl sm:text-3xl font-bold" style={{ color: '#3DAA3C' }}>{number}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm mt-1">{label}</p>
                 </div>
               ))}
             </div>
@@ -137,16 +137,16 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-14">
-              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Ce oferim</p>
-              <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>Serviciile noastre complete</h2>
+        <section className="py-16 sm:py-24" style={{ backgroundColor: '#F5F7F8' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10 sm:mb-14">
+              <p className="text-[#3DAA3C] font-medium text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3">Ce oferim</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: '#1F3C5A' }}>Serviciile noastre complete</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {services.map(({ img, title, desc, to, badge }) => (
                 <Link key={title} to={to} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-                  <div className="relative overflow-hidden h-48">
+                  <div className="relative overflow-hidden h-40 sm:h-48">
                     <Image src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     {badge && (
                       <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ backgroundColor: '#3DAA3C' }}>
@@ -154,9 +154,9 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-semibold text-base mb-2" style={{ color: '#1F3C5A' }}>{title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                  <div className="p-4 sm:p-5">
+                    <h3 className="font-semibold text-sm sm:text-base mb-2" style={{ color: '#1F3C5A' }}>{title}</h3>
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{desc}</p>
                     <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold" style={{ color: '#3DAA3C' }}>
                       Află mai mult <ChevronRight className="w-3 h-3" />
                     </span>
@@ -168,19 +168,19 @@ export default function Home() {
         </section>
 
         {/* Airbnb highlight */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+        <section className="py-16 sm:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
               <div>
-                <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Serviciul nostru premium</p>
-                <h2 className="text-4xl font-bold mb-6 leading-tight" style={{ color: '#1F3C5A' }}>
+                <p className="text-[#3DAA3C] font-medium text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3">Serviciul nostru premium</p>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight" style={{ color: '#1F3C5A' }}>
                   Închiriezi pe Airbnb sau Booking?<br/>
                   <span style={{ color: '#3DAA3C' }}>Noi ne ocupăm de tot.</span>
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">
                   Ești proprietar în Cluj-Napoca și vrei să câștigi mai mult din apartamentul tău în regim hotelier? PWSG Group preia administrarea completă — de la listare și fotografii profesionale, la comunicarea cu oaspeții, curățenie și check-out.
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {[
                     'Listare și optimizare pe Airbnb, Booking.com, Travelminit',
                     'Gestionare rezervări și comunicare oaspeți 24/7',
@@ -191,21 +191,21 @@ export default function Home() {
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
-                      <span className="text-gray-600 text-sm">{item}</span>
+                      <span className="text-gray-600 text-xs sm:text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   to="/admin-airbnb"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
+                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110 text-sm sm:text-base"
                   style={{ backgroundColor: '#3DAA3C' }}
                 >
                   Descoperă administrarea 360° <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
               <div className="relative">
-                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-[480px]" />
-                <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-5 shadow-xl hidden md:block">
+                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-64 sm:h-80 md:h-[480px]" />
+                <div className="absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl p-4 sm:p-5 shadow-xl hidden md:block">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#EAF7F1' }}>
                       <TrendingUp className="w-6 h-6" style={{ color: '#3DAA3C' }} />
@@ -222,20 +222,20 @@ export default function Home() {
         </section>
 
         {/* Why us */}
-        <section className="py-24" style={{ backgroundColor: '#F5F7F8' }}>
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-14">
-              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">De ce noi</p>
-              <h2 className="text-4xl font-bold" style={{ color: '#1F3C5A' }}>De ce să alegi PWSG Group</h2>
+        <section className="py-16 sm:py-24" style={{ backgroundColor: '#F5F7F8' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10 sm:mb-14">
+              <p className="text-[#3DAA3C] font-medium text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3">De ce noi</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: '#1F3C5A' }}>De ce să alegi PWSG Group</h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {whyUs.map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="bg-white rounded-2xl p-7 shadow-sm text-center">
-                  <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style={{ backgroundColor: '#EAF7F1' }}>
-                    <Icon className="w-7 h-7" style={{ color: '#3DAA3C' }} />
+                <div key={title} className="bg-white rounded-2xl p-5 sm:p-7 shadow-sm text-center">
+                  <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-5" style={{ backgroundColor: '#EAF7F1' }}>
+                    <Icon className="w-6 sm:w-7 h-6 sm:h-7" style={{ color: '#3DAA3C' }} />
                   </div>
-                  <h3 className="font-semibold text-base mb-3" style={{ color: '#1F3C5A' }}>{title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+                  <h3 className="font-semibold text-sm sm:text-base mb-2 sm:mb-3" style={{ color: '#1F3C5A' }}>{title}</h3>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
@@ -243,22 +243,22 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-24" style={{ backgroundColor: '#1F3C5A' }}>
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-14">
-              <h2 className="text-4xl font-bold text-white">Ce spun clienții noștri</h2>
+        <section className="py-16 sm:py-24" style={{ backgroundColor: '#1F3C5A' }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10 sm:mb-14">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Ce spun clienții noștri</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {testimonials.map(({ text, name, role, rating }) => (
-                <div key={name} className="bg-white/10 backdrop-blur rounded-2xl p-7">
+                <div key={name} className="bg-white/10 backdrop-blur rounded-2xl p-5 sm:p-7">
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: rating }).map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-blue-100 italic leading-relaxed mb-5 text-sm">{text}</p>
+                  <p className="text-blue-100 italic leading-relaxed mb-5 text-xs sm:text-sm">{text}</p>
                   <div>
-                    <p className="font-semibold text-white text-sm">{name}</p>
+                    <p className="font-semibold text-white text-xs sm:text-sm">{name}</p>
                     <p className="text-[#3DAA3C] text-xs">{role}</p>
                   </div>
                 </div>
@@ -268,25 +268,25 @@ export default function Home() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-white">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-4xl font-bold mb-5" style={{ color: '#1F3C5A' }}>
+        <section className="py-12 sm:py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5" style={{ color: '#1F3C5A' }}>
               Gata să îți maximizezi veniturile?
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-gray-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
               Contactează-ne pentru o consultație gratuită. Analizăm proprietatea ta și îți spunem exact cât poți câștiga cu administrarea noastră 360°.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110 text-sm sm:text-base"
                 style={{ backgroundColor: '#3DAA3C' }}
               >
                 Consultație gratuită <ChevronRight className="w-4 h-4" />
               </Link>
               <a
                 href="tel:+40747075974"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold border-2 transition-all hover:bg-gray-50"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold border-2 transition-all hover:bg-gray-50 text-sm sm:text-base"
                 style={{ color: '#1F3C5A', borderColor: '#1F3C5A' }}
               >
                 0747 075 974
