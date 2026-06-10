@@ -88,7 +88,7 @@ export default function Home() {
 
           <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-4 py-2 sm:py-4 md:py-8 w-full flex items-start sm:items-center justify-center">
             <div className="max-w-xl text-center sm:text-left">
-              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
+              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-6 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 Proprietatea ta, prioritatea noastră
               </span>
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 sm:mb-5 drop-shadow-lg">
