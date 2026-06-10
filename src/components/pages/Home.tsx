@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Image } from '@/components/ui/image';
-import { CheckCircle, ChevronRight, Clock, Shield, Star, TrendingUp, Users, MessageCircle } from 'lucide-react';
+import { CheckCircle, ChevronRight, Clock, MessageCircle, Shield, Star, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HERO_IMG = "https://static.wixstatic.com/media/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg/v1/fill/w_1760,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/88f881_a3a976e03c9544239af781068a3bbde1~mv2.jpg";
@@ -76,7 +76,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 pt-20">
         {/* Hero */}
-        <section className="relative min-h-[50vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-screen flex items-center justify-center md:items-center">
+        <section className="relative min-h-[80vh] sm:min-h-[70vh] md:min-h-[95vh] lg:min-h-screen flex items-center justify-center md:items-center">
           {/* Imaginea reală — scaled down on mobile */}
           <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center' }} />
           {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
