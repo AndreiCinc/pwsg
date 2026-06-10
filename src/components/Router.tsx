@@ -8,6 +8,7 @@ import AboutPage from '@/components/pages/AboutPage';
 import ContactPage from '@/components/pages/ContactPage';
 import AdminAirbnbPage from '@/components/pages/AdminAirbnbPage';
 import HotelRegimePage from '@/components/pages/HotelRegimePage';
+import TermsAndConditionsPage from '@/components/pages/TermsAndConditionsPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -65,6 +66,13 @@ const router = createBrowserRouter([
         element: <HotelRegimePage />,
         routeMetadata: {
           pageIdentifier: 'hotel-regim',
+        },
+      },
+      {
+        path: "termeni-si-conditii",
+        element: <TermsAndConditionsPage />,
+        routeMetadata: {
+          pageIdentifier: 'terms-conditions',
         },
       },
       {
