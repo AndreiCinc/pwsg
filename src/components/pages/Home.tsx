@@ -76,9 +76,9 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative min-h-screen sm:min-h-[95vh] flex items-end pb-12 sm:pb-20 md:items-center md:pb-0">
-          {/* Imaginea reală — full visibility */}
-          <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <section className="relative min-h-screen sm:min-h-[95vh] flex items-center justify-center md:items-center">
+          {/* Imaginea reală — scaled down on mobile */}
+          <Image src={HERO_IMG} alt="Proprietate PWSG Group Cluj-Napoca" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center' }} />
           {/* Overlay rafinat: gradient de jos în sus, nu blochează imaginea */}
           <div className="absolute inset-0" style={{
             background: 'linear-gradient(to right, rgba(10,22,38,0.82) 0%, rgba(10,22,38,0.55) 55%, rgba(10,22,38,0.15) 100%)'
@@ -86,8 +86,8 @@ export default function Home() {
           {/* Linie de accent verde jos */}
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: 'linear-gradient(to right, #3DAA3C, transparent)' }} />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-24 w-full">
-            <div className="max-w-xl">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-24 w-full flex items-center justify-center">
+            <div className="max-w-xl text-center sm:text-left">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-4 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse inline-block" />
                 Cluj-Napoca · Disponibili 24/7
