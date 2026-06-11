@@ -93,7 +93,7 @@ export default function Home() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 sm:mb-8 drop-shadow-lg">
                 <span>
- Servicii complete
+                  Servicii complete
                 </span>
                <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
                 <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Regim Hotelier Cluj-Napoca · Curățenie Profesională · Spații Interioare & Exterioare</span>
