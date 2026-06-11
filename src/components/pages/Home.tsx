@@ -93,9 +93,9 @@ export default function Home() {
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 sm:mb-5 drop-shadow-lg">
                 Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
-                <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
+                <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Regim Hotelier Cluj-Napoca · Curățenie Profesională · Spații Interioare & Exterioare</span>
               </h1>
-              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 drop-shadow">
+              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-8 sm:mb-10 drop-shadow">
                 De la curățenie profesională și întreținerea grădinii, până la administrarea completă a locuințelor în regim hotelier — o singură echipă pentru toate nevoile proprietății tale.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
