@@ -91,7 +91,7 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-6 sm:mb-6 tracking-widest uppercase" style={{ backgroundColor: '#3DAA3C', color: '#fff' }}>
                 Proprietatea ta, prioritatea noastră
               </span>
-              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 sm:mb-5 drop-shadow-lg">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 sm:mb-5 drop-shadow-lg">
                 Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
                 <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Curățenie · Spații verzi · Regim hotelier — Cluj-Napoca</span>
               </h1>
