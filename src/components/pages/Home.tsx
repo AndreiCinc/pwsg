@@ -95,7 +95,7 @@ export default function Home() {
                 Servicii complete <span style={{ color: '#3DAA3C' }}>pentru proprietatea ta</span>
                 <span className="block text-xs sm:text-base md:text-2xl lg:text-3xl font-medium text-white/80 mt-2">Regim Hotelier Cluj-Napoca · Curățenie Profesională · Spații Interioare & Exterioare</span>
               </h1>
-              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-8 sm:mb-10 drop-shadow">
+              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-8 sm:mb-10 sm:mt-7 drop-shadow">
                 De la curățenie profesională și întreținerea grădinii, până la administrarea completă a locuințelor în regim hotelier — o singură echipă pentru toate nevoile proprietății tale.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
