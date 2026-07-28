@@ -20,6 +20,20 @@ const services = [
     ],
   },
   {
+    title: 'Administrare Proprietăți Airbnb & Booking Cluj-Napoca',
+    badge: '📊 Management complet',
+    img: 'https://static.wixstatic.com/media/88f881_266d2806ab7544748020b1b4f988a226~mv2.png?originWidth=768&originHeight=576',
+    desc: 'Servicii complete de administrare pentru proprietăți în regim hotelier. Gestionez tot ceea ce ține de operațiuni zilnice, comunicare cu oaspeții și optimizare a veniturilor tale.',
+    features: [
+      'Gestionare rezervări și calendar',
+      'Comunicare cu oaspeții 24/7',
+      'Check-in și check-out profesional',
+      'Rapoarte financiare detaliate',
+      'Optimizare prețuri și ocupare',
+      'Coordonare servicii auxiliare',
+    ],
+  },
+  {
     title: 'Servicii de Spălătorie Cluj-Napoca',
     badge: '🚀 Colectare la domiciliu',
     img: 'https://static.wixstatic.com/media/88f881_266d2806ab7544748020b1b4f988a226~mv2.png?originWidth=768&originHeight=576',
@@ -44,20 +58,6 @@ const services = [
       'Instalare și întreținere sisteme de irigare',
       'Tratamente fitosanitare sezoniere',
       'Plantări și reamenajări complete',
-    ],
-  },
-  {
-    title: 'Spălare cu Apă sub Presiune Cluj-Napoca',
-    badge: null,
-    img: 'https://static.wixstatic.com/media/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg/v1/fill/w_582,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/88f881_9e1900345be841f28538fbde439dab08~mv2.jpg',
-    desc: 'Curățăm eficient pavaje, terase, fațade, garduri și orice suprafețe exterioare cu echipamente profesionale de înaltă presiune. Rezultate spectaculoase în timp record.',
-    features: [
-      'Curățare pavaje, alei și terase',
-      'Spălare fațade clădiri și garduri',
-      'Curățare acoperișuri și jgheaburi',
-      'Îndepărtare mușchi, alge și depuneri',
-      'Spălare parcări și spații industriale',
-      'Tratament hidrofob după curățare',
     ],
   },
   {
