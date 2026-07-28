@@ -170,59 +170,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Airbnb highlight */}
-        <section className="py-20 sm:py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:gap-16 md:gap-20 items-center">
-              <div>
-                <p className="text-[#3DAA3C] font-medium text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-5">Serviciul nostru premium</p>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 leading-tight" style={{ color: '#1F3C5A' }}>
-                  Închiriezi pe Airbnb sau Booking?<br/>
-                  <span style={{ color: '#3DAA3C' }}>Noi ne ocupăm de tot.</span>
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base">
-                  Ești proprietar în Cluj-Napoca și vrei să câștigi mai mult din apartamentul tău în regim hotelier? PWSG Group preia administrarea completă — de la listare și fotografii profesionale, la comunicarea cu oaspeții, curățenie și check-out.
-                </p>
-                <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-                  {[
-                    'Listare și optimizare pe Airbnb, Booking.com, Travelminit',
-                    'Gestionare rezervări și comunicare oaspeți 24/7',
-                    'Curățenie profesională la fiecare check-out',
-                    'Fotografii profesionale pentru anunț',
-                    'Optimizare dinamică tarife pentru venituri maxime',
-                    'Rapoarte lunare de performanță',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
-                      <span className="text-gray-600 text-sm sm:text-base">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/admin-airbnb"
-                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110 text-sm sm:text-base"
-                  style={{ backgroundColor: '#3DAA3C' }}
-                >
-                  Descoperă administrarea 360° <ChevronRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <div className="relative">
-                <Image src={AIRBNB_IMG} alt="Administrare Airbnb Booking Cluj" className="rounded-2xl shadow-2xl w-full object-cover h-48 sm:h-64 md:h-[480px]" />
-                <div className="absolute -bottom-4 sm:-bottom-5 -left-4 sm:-left-5 bg-white rounded-2xl p-4 sm:p-5 shadow-xl hidden md:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: '#EAF7F1' }}>
-                      <TrendingUp className="w-6 h-6" style={{ color: '#3DAA3C' }} />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500">Creștere medie venituri</p>
-                      <p className="text-2xl font-bold" style={{ color: '#1F3C5A' }}>+260%</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* Why us */}
         <section className="py-20 sm:py-32" style={{ backgroundColor: '#F5F7F8' }}>
