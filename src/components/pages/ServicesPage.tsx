@@ -163,6 +163,78 @@ export default function Servicii() {
           ))}
         </div>
 
+        {/* Section 5: All Services Showcase */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="text-[#3DAA3C] font-medium text-sm uppercase tracking-widest mb-3">Portofoliu complet</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#1F3C5A' }}>Toate Serviciile Noastre</h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                O soluție completă pentru toate nevoile proprietății tale din Cluj-Napoca. Alege serviciile care ți se potrivesc.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, i) => (
+                <div key={i} className="group rounded-2xl overflow-hidden border border-gray-200 hover:border-[#3DAA3C] transition-all hover:shadow-xl">
+                  {/* Image */}
+                  <div className="relative overflow-hidden h-48 bg-gray-200">
+                    <Image 
+                      src={service.img} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {service.badge && (
+                      <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3" style={{ backgroundColor: '#EAF7F1', color: '#3DAA3C' }}>
+                        {service.badge}
+                      </span>
+                    )}
+                    <h3 className="text-lg font-bold mb-3" style={{ color: '#1F3C5A' }}>
+                      {service.title.replace(' Cluj-Napoca', '')}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{service.desc}</p>
+
+                    {/* Key Features */}
+                    <div className="space-y-2 mb-6">
+                      {service.features.slice(0, 3).map((f) => (
+                        <div key={f} className="flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#3DAA3C' }} />
+                          <span className="text-gray-600 text-xs">{f}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-white text-sm transition-all hover:brightness-110 w-full justify-center"
+                      style={{ backgroundColor: '#3DAA3C' }}
+                    >
+                      Solicită ofertă <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="mt-16 text-center">
+              <p className="text-gray-600 mb-6 text-lg">Nu ești sigur care serviciu ți se potrivește?</p>
+              <a
+                href="tel:+40747075974"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-white transition-all hover:brightness-110 shadow-lg text-lg"
+                style={{ backgroundColor: '#3DAA3C' }}
+              >
+                <Phone className="w-5 h-5" /> Sună pentru o consultație gratuită
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-20" style={{ backgroundColor: '#1F3C5A' }}>
           <div className="max-w-2xl mx-auto px-6 text-center">
